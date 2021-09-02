@@ -1,0 +1,70 @@
+﻿@model ApplicationCreationDto
+<br />
+<br />
+@if (ViewBag.error != null)
+{
+    <h1 class="alert-warning">@ViewBag.error</h1>
+}
+<br />
+
+<div class="row">
+    <div class="col-md-4 col-sm-12">
+
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="card">
+            <br />
+            <h1>Crear Aplicación</h1>
+            <br />
+            <form asp-action="CreateApp" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label class="col-form-label" asp-for="Name">
+                    </label>
+                    <input class="form-control" asp-for="Name" type="text" name="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" asp-for="Description">
+                    </label>
+                    <input class="form-control" asp-for="Description" type="text" Description="Description" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" asp-for="Deparment">
+                    </label>
+                    <input class="form-control" asp-for="Deparment" type="text" Deparment="Deparment" />
+                    <span asp-validation-for="Deparment" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" asp-for="Category">
+                    </label>
+                    @{
+                        var category = (List<Category>)ViewBag.categories;
+                    }
+                    <select class="form-control" name="Category" asp-for="Category">
+                        @foreach (var item in category)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" asp-for="Owner">
+                    </label>
+                    <input class="form-control" asp-for="Owner" type="text" Owner="Owner" />
+                    <span asp-validation-for="Owner" class="text-danger"></span>
+                </div>
+                <br />
+                <br />
+                <button type="submit" class="btn btn-info">Crear</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+
+    </div>
+
+</div>

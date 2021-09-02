@@ -1,0 +1,36 @@
+﻿
+    <script src="C:\Users\pablo\source\repos\Javascript\Javascript\Files\Anagram\JavaScript.js"></script>
+
+<h1 id="label" ></h1>
+<br />
+<br />
+<input class="form-control" type="text" id="one" />
+<br />
+<br />
+<input class="form-control" type="text" id="two" />
+<br />
+<br />
+<button id="check" type="button" class="btn btn-info">Check anagram</button>
+
+<script>
+
+    var check = document.querySelector("#check");
+    var one = document.querySelector("#one");
+    var two = document.querySelector("#two");
+    var label = document.querySelector("#label");
+
+    check.onclick = function () {
+        var flag = Getanagram(one, two);
+
+        if (flag) {
+            label.innerHTML = "You word is an anagram";
+            label.style.color = "green";
+        } else {
+            label.innerHTML = "You word is not an anagram";
+            label.style.color = "red";
+        }
+
+    }
+   
+
+</script>
